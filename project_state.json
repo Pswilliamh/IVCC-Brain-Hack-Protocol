@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "New project",
+  "architectural_notes": [],
+  "known_issues": [
+    "In some UI layouts/screen sizes, the 'Download code'/'Export code' button may not be visible to the user."
+  ],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-add-a-downloadable-zip-artifact-of-the-full-project-frontend-backend-into-the-repository-as-a-static-file-so-users-can-download-the-code-even-when-the-platform-ui-download-export-code-button-is-not-visible",
+      "title": "Add a downloadable ZIP artifact of the full project (frontend + backend) into the repository as a static file so users can download the code even when the platform UI “Download/Export code” button is not visible.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expose-the-zip-download-via-the-landing-page-ui-by-adding-a-clearly-labeled-download-link-button-in-the-site-footer-and-include-a-short-one-line-instruction-indicating-that-this-is-the-full-source-code-download",
+      "title": "Expose the ZIP download via the landing page UI by adding a clearly labeled download link/button in the site footer, and include a short one-line instruction indicating that this is the full source code download.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Provide an alternative way to export/download the full landing page project as a ZIP delivered directly in chat (since the UI 'Download/Export code' button is not visible).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "projectName": "Provide an in-app downloadable ZIP of the full landing page project (alternative to missing Export button)",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

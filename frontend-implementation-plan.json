@@ -1,0 +1,44 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "In-app static ZIP download for full project source code",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Add a static downloadable ZIP containing the full project source under the site’s public assets.",
+      "acceptanceCriteria": [
+        "A ZIP file containing the full project source (including both `frontend/` and `backend/`) is added under `frontend/public/assets/downloads/` (or equivalent static public directory) and is served as a static asset by the deployed site.",
+        "The ZIP downloads successfully in the browser and unzips without errors.",
+        "The ZIP includes the current landing page code (not an empty placeholder)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/downloads/full-project-source.zip",
+          "operation": "create",
+          "description": "Add the prebuilt ZIP artifact containing the current full repository source tree (must include both `frontend/` and `backend/`) as a static public asset so it is served by the deployed site."
+        },
+        {
+          "path": "frontend/src/config/landing.ts",
+          "operation": "modify",
+          "description": "Add an exported constant (e.g., SOURCE_CODE_ZIP_PATH) that points to the static asset path under `frontend/public/assets/downloads/` so UI can reference it from a single place."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Expose the ZIP download via a clearly labeled footer link/button with a one-line instruction.",
+      "acceptanceCriteria": [
+        "The footer renders a visible control labeled in English (e.g., “Download source code (ZIP)”).",
+        "Clicking the control downloads the ZIP from the static asset path added in REQ-1.",
+        "The link uses safe attributes when appropriate (e.g., no navigation away from the landing page is required; if opening a new tab is used, `rel=\"noopener noreferrer\"` is set)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/landing/Footer.tsx",
+          "operation": "modify",
+          "description": "Add a clearly labeled download control (e.g., “Download source code (ZIP)”) in the footer and a one-line instruction indicating it downloads the full project source; wire the href to the shared path constant from `frontend/src/config/landing.ts` and use safe link attributes as appropriate."
+        }
+      ]
+    }
+  ]
+}

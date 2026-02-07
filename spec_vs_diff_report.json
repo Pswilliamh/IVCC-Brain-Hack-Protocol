@@ -1,0 +1,40 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-07T04:28:58.676Z",
+  "summary": "REQ-2 appears implemented by adding a footer download link/button and an instruction line pointing to a configured ZIP path. REQ-1 is not implemented because no ZIP asset was added to the repository under a static public directory in the provided diff summary.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Add a downloadable ZIP artifact of the full project (frontend + backend) into the repository as a static file under `frontend/public/assets/downloads/` (or equivalent) and serve it as a static asset.",
+      "reason": "The diff shows no added files, and there is no evidence of a ZIP file being added under `frontend/public/assets/downloads/` (or any other public static directory). Only a link/path constant referencing `/assets/downloads/full-project-source.zip` was added.",
+      "evidence": [
+        "File diff summary: \"Added: 0\"",
+        "frontend/src/config/landing.ts (sets SOURCE_CODE_ZIP_PATH to '/assets/downloads/full-project-source.zip')"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Updated `project_state.json` new_feature_requests and statuses not requested by the BuildRequest.",
+      "reason": "The BuildRequest requirements focus on adding a static ZIP asset and exposing it in the footer; it does not mention maintaining or modifying a project tracking/state JSON file.",
+      "evidence": [
+        "project_state.json"
+      ]
+    },
+    {
+      "description": "Added a new config constant `SOURCE_CODE_ZIP_PATH` in landing config.",
+      "reason": "REQ-2 requires exposing a download link; it does not explicitly require introducing a configuration constant to store the path (though it's a reasonable implementation detail).",
+      "evidence": [
+        "frontend/src/config/landing.ts"
+      ]
+    }
+  ],
+  "confidence": 0.72,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/landing/Footer.tsx",
+    "frontend/src/config/landing.ts",
+    "project_state.json"
+  ]
+}
